@@ -34,6 +34,7 @@
 	String gender = request.getParameter("gender");
 	String[] hobby = request.getParameterValues("hobby");
 	String hobbies = Arrays.toString(request.getParameterValues("hobby"));
+	hobbies = hobbies.substring(1, hobbies.length()-1);
 	//참고 : hobby는 배열입니다. -> getParamterValues() 메소드로 데이터를 받습니다. -> 변수 타입은 String[]
 %>
 <h3>환영합니다. WELCOME!!!</h3>
