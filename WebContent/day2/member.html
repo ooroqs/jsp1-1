@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 등록 </title><!-- 스타일 참고  -->
+<title>JSP1 프로젝트[6]-회원 등록 </title><!-- 스타일 참고  -->
 <link rel="stylesheet" href="member.css">
 <script>
 	function validCheck() {
@@ -35,7 +35,8 @@
 <body>
 	<div style="width: 70%; margin: auto;">
 		<h3>회원 등록</h3>
-		<form action ="result.html" name="frmReg" onsubmit="return validCheck()"> 
+		<form action ="member_save.jsp" name="frmReg" method="post" 
+				onsubmit="return validCheck()"> 
 			<table style="width: 100%">
 				<tr>
 					<td><label>이름</label></td>  <!--  required 필수 입력  , readonly : 읽기만.-->
