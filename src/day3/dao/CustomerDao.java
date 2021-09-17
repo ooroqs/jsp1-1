@@ -32,8 +32,10 @@ public class CustomerDao {
 			pstmt.setString(7, cus.getHobby());
 			
 			pstmt.execute();
+			conn.commit();
 		}catch(SQLException e) {
-			
+			e.printStackTrace();
+			System.out.println("insert 오류 : " + e.getMessage());
 		}finally {
 			try {
 				pstmt.close();
