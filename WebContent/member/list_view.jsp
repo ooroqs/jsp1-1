@@ -33,13 +33,9 @@
 	</style>
 </head>
 <body>
-<%
-	CustomerDao dao = CustomerDao.getInstance();
-	List<Customer> list = dao.selectAll();
-//	out.print(list);
-%>
 <h3> 고객 리스트 WELCOME!!!</h3>
 <%
+	List<Customer> list = (List<Customer>)request.getAttribute("list");  //다음주에는 이 코드를 없앱니다.
 	for(Customer cus : list) {
 %>
 <ul>
