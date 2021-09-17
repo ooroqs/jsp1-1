@@ -33,6 +33,8 @@ public class CustomerDao {
 			
 			pstmt.execute();
 		}catch(SQLException e) {
+			
+		}finally {
 			try {
 				pstmt.close();
 			} catch (SQLException e1) {
