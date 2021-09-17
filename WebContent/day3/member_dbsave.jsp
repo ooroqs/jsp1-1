@@ -54,5 +54,6 @@
 	<li>지역 : <%=addr %></li>
 	<li>취미 : <%= hobbies %></li>
 </ul>
+<a href="member_list.jsp">회원 리스트</a>
 </body>
 </html>
