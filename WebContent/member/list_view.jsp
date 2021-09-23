@@ -31,6 +31,7 @@
 		width: 10vw;
 	}
 	</style>
+	
 </head>
 <body>
 <!--  실행 url은 list.jsp 로 합니다. -->
@@ -41,7 +42,8 @@
 %>
 <ul>
 	<li id="name"><a href="update.jsp?idx=<%=cus.getIdx()%>">
-					<%= cus.getName() %></a> 님</li>
+					<%= cus.getName() %></a> 님
+					</li>
 	<li id="email"><%= cus.getEmail() %></li>
 	<li><%= cus.getAge() %> 세 (<%= (cus.getGender().equals("male")? "남":"여") %>) </li>
 	<li><%= cus.getAddr() %></li>

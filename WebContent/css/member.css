@@ -23,18 +23,17 @@ input[type=number], select {
 	width: 20%;
 }
 
-input[type=submit], input[type=reset] {
+input[type=submit], input[type=reset],input[type=button] {
 	padding: 7px 15px;
-	margin: 7px 15px;
+	margin: 7px 5px;
 	cursor: pointer;
-	background: #cc3399;
-	font-size: 1.1em;
+	background: #3d4f5f;
 	color: white;
 	border: none;
 }
 
-input[type=submit]:hover, input[type=reset]:hover {
-	background: #cc6699;
+input[type=submit]:hover, input[type=reset]:hover ,input[type=button]:hover{
+	background: #4b1832;
 }
 
 label {

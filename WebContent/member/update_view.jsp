@@ -12,6 +12,17 @@
 	function validCheck() {
 		
 	}
+	
+	function deleteOk()	{
+		const yn = confirm('[주의]등록된 고객에서 삭제하시겠습니까?');
+		if(yn){
+			alert(`고객 idx ${cus.idx} 를 삭제합니다.`);
+			location.href=`deleteOk.jsp?idx=${cus.idx}`;			//요청 url 이동 --> 고객 삭제 완성해보세요.(제공시간 30분)
+		}else {
+			alert('고객 삭제를 취소했습니다.');
+		}
+	
+	}
 </script>
 </head>
 <body>
@@ -57,11 +68,11 @@ if(request.getAttribute("alert")!=null){
 					<td><select name="addr" id="addr_select">
 							<!-- value 속성은 서버에 전달시킬 값 -->
 							<option value="서울">서울</option>
-							<option value="인천" selected>인천</option>
+							<option value="인천">인천</option>
 							<!-- selected 는 기본 선택 값. -->
 							<option value="대전">대전</option>
 							<option value="광주">광주</option>
-							<option value="기타">기타</option>
+							<option value="기타" selected>기타</option>
 					</select> 
 					<span id="addr_id">
 					<!-- disabled="disabled" 는 파라미터 값 전달에서 제외됩니다. -->
@@ -78,8 +89,10 @@ if(request.getAttribute("alert")!=null){
 					<td><%= cus.getHobby() %></td>
 				</tr>
 				<tr>
-					<td colspan="2" style="text-align: center"><input
-						type="submit" value="수정하기"> 
+					<td colspan="2" style="text-align: center">
+					<input type="submit" value="수정하기"> 
+					<input type="button" value="삭제하기" onclick="deleteOk()"> 	
+					<input type="button" value="고객목록" onclick="location.href='list.jsp'"> 	
 					<input type="reset" value="다시쓰기"></td>
 				</tr>
 			</table>
@@ -96,6 +109,15 @@ if(request.getAttribute("alert")!=null){
 		}
 		
 	});
+	
+	/* 표현식으로 자바의 변수값을 가져오기. cus객체의 addr프로퍼티 (get메소드를 통해서 가져옵니다.)*/
+	document.querySelectorAll("option").forEach( item => {
+		if(item.value===`${cus.addr}`) item.selected=true;   
+	});
+	
 	</script>
 </body>
 </html>
+
+
+
