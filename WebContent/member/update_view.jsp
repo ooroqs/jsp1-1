@@ -12,10 +12,20 @@
 	function validCheck() {
 		
 	}
-	
 </script>
 </head>
 <body>
+<%
+if(request.getAttribute("alert")!=null){
+%>
+	<script type="text/javascript">
+		alert('고객 정보가 수정되었습니다.!');
+	</script>
+
+<%
+}
+%>
+
 <%
 	Customer cus = (Customer)request.getAttribute("cus");
 %>
