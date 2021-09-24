@@ -42,10 +42,11 @@ public class MybatisDao {
 	public int insert(Customer cus) {
 	//	SqlSession mapper = sqlFactory.openSession(true);   //auto commit 을 true, 기본값 false
 		SqlSession mapper = sqlFactory.openSession();
-		int n = mapper.insert("insert", cus);    //auto commit?  n값 확인? 정상 insert 이면 1
+		mapper.insert("insert", cus);    //auto commit?  n값 확인? 정상 insert 이면 1
+		//파라미터의 cus의 idx 프로퍼티에 자동증가 컬럼값 저장?
 		mapper.commit();
 		mapper.close();
-		return n;
+		return cus.getIdx();
 	}
 	
 	public int delete(int idx) {
