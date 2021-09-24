@@ -1,3 +1,4 @@
+<%@page import="day5.dao.MybatisDao"%>
 <%@page import="day3.dto.Customer"%>
 <%@page import="day3.dao.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,8 +10,8 @@
 
 	int idx = Integer.parseInt(request.getParameter("idx"));
 
-	CustomerDao dao = CustomerDao.getInstance();
-	Customer cus = dao.selectOne(idx);
+	MybatisDao dao = MybatisDao.getInstance();
+	Customer cus = dao.select(idx);
 	
 	//out.print(cus);   //테스트 후 지우세요.
 	request.setAttribute("cus", cus);

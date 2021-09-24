@@ -23,7 +23,8 @@
 	Customer cus = new Customer(0,name,password,email,addr,gender,age,hobbies);		
 	MybatisDao dao = MybatisDao.getInstance();
 	
-	int idx = dao.insert(cus); cus.setIdx(idx);
+	int idx = dao.insert(cus); 
+	cus.setIdx(idx);
 	
 	request.setAttribute("cus", cus);    //여기서 cus 객체는 idx값이 0인 상태
 	pageContext.forward("registration_view.jsp");
