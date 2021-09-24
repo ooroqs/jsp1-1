@@ -13,7 +13,17 @@
 <%
 	MybatisDao dao = MybatisDao.getInstance();
 	List<Customer> list = dao.selectAll();
+	out.print("<h4>select * from customer</h4>");
 	out.print(list);
+	
+	Customer cus = dao.select(99);
+	out.print("<h4>select * from customer where idx=99</h4>");
+	out.print(cus);  //조회결과가 없으면 null 입니다.
+	
+	out.print("<h4>insert into customer</h4>");
+	int result = dao.insert(new Customer(0,"박세리","1111",
+						"seriiii@daum.net",null,"female",0,"피아노"));
+	out.print(result);
 %>
 </body>
 </html>
