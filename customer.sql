@@ -10,17 +10,29 @@ create table customer (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- varchar�� ũ��� ���ڼ�
-insert into customer(name,password,email,gender)
-values ('ȫ�浿','11111111','hong@naver.com','female');
+-- varchar의 크기는 문자수
+insert into customer(name,password,email,gender,age)
+values ('홍길동','11111111','hong@naver.com','female','12');
 
 select * from customer c ;
+insert into customer(name,password,email,addr,gender,age,hobby)
+values ('홍길동','11111111','hong@naver.com','','female',0,'');
 
--- ���ڼ� üũ �׽�Ʈ��
+-- 문자수 체크 테스트용
 insert into customer(name,password,email,gender)
-values ('ȫ�浿','11111111','hong@naver.com','female�����ٶ�');
+values ('홍길동','11111111','hong@naver.com','female가나다라');
 
 insert into customer(name,password,email,gender)
-values ('ȫ�浿','11111111','hong@naver.com','female�����ٶ�f');
+values ('홍길동','11111111','hong@naver.com','female가나다라f');
 
 drop table customer ;
+
+
+-- 고객정보 수정 요구사항 : email, addr을 변경할수 있다. 
+--                    검색 조건은 pk 컬럼 idx로 합니다.
+update customer set email='kil@naver.com',addr='울산'
+where idx=1;
+
+commit;
+
+delete from customer where idx=9;
