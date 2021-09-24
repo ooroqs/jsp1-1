@@ -1,5 +1,5 @@
 
-package day6.dao;
+package day5.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import day3.dto.Customer;
-import day6.mybatis.SqlSessionBean;
+import day5.mybatis.SqlSessionBean;
 
 public class MybatisDao {
 	private static MybatisDao dao = new MybatisDao();
@@ -48,6 +48,22 @@ public class MybatisDao {
 		return n;
 	}
 	
+	public int delete(int idx) {
+		SqlSession mapper = sqlFactory.openSession();
+		int n = mapper.delete("delete", idx);
+		mapper.commit();
+		mapper.close();
+		return n;
+	}	
+	
+	public int update(Customer cus) {
+		SqlSession mapper = sqlFactory.openSession();
+		int n=mapper.update("update", cus);
+		mapper.commit();
+		mapper.close();
+		return n;
+	}
+	//결론 insert, update, delete 메소드는 return 값이 있습니다. -> 실행한 결과 행의 갯수
 }
 
 
